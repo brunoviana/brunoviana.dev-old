@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Bruno Viana | Blog pessoal sobre desenvolvimento e engenharia de software`,
+    title: `Bruno Viana | Blog pessoal sobre engenharia e desenvolvimento de software`,
     name: `brunoviana.dev`,
     siteUrl: `https://brunoviana.dev`,
     description: `This is my description that will be used in the meta tags and important for search results`,
