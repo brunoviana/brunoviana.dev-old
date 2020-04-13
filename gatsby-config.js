@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://brunoviana.dev`,
     description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
-      heading: `Repositório de aprendizados isento verdades absolutas.`,
+      heading: `Repositório de aprendizados. Isento verdades absolutas.`,
       maxWidth: 652,
     },
     social: [
