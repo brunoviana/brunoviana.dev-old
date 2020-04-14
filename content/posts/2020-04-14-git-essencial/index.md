@@ -6,125 +6,35 @@ hero: ./images/hero.jpg
 excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool
 ---
 
-My first post using `@narative/gatsby-theme-novela`. Novela is built by the team at [Narative](https://narative.co), and built for everyone that loves the web.
+## Introdução
 
-## Headers
+Quem me conhece bem sabe que minha memória é tão boa quanto a de um peixinho dourado. Só que por algum motivo obscuro minha cabeça guarda algumas coisas de uma forma tão viva que eu não consigo entender.
 
-# H1
+Recentemente eu lembrei de um pobre colega de trabalho que ficou uma noite inteira trabalhando para refazer um trabalho que ele tinha levado uma fucking semana para fazer. 
 
-It is recommended to NOT use H1s as it is reserved for the article heading. Any H1 is set as an H2.
+Sim, ele foi forçado a fazer em uma noite o trabalho de uma semana!!
 
-## H2
+O ano era mais ou menos 2007-2008, e nessa época todo o código de todos os projetos ficavam em um servidor compartilhado na rede e a gente programava direto dentro do servidor. 
 
-### H3
+Isso tem uma explicação simples: era a forma que a gente conhecia de trabalhar mais de uma pessoa no mesmo projeto.
 
-#### H4
+Imagina a merda que seria cada um ter o projeto na sua máquina e depois ter que consolidar tudo que foi feito e modificado em cada arquivo antes de subir para produção!
 
-##### H5
+Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles e quando você exclui arquivos pela rede, meu amigo, minha amiga, não tem lixeira não, tudo é apagado real oficial.
 
-###### H6
+Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passamos pelos mesmos problemas:
 
-## Emphasis
+* Seu computador deu pau no HD e você perdeu todo trabalho;
+* Você vai subir uma nova feature para produção, perceber que ela está com vários bugs e não vai ter uma maneira rápida voltar ao último estado em que o código funcionava corretamente;
+* Você vai começar a programar uma nova feature e do nada vão mandar você parar para resolver um problema e vai ser um parto mandar isso para produção pois no meio da correção do bug tem código da feature inacabada;
+* Você vai fazer modificações em um arquivo e alguém da sua equipe vai editar o mesmo arquivo e vai sobrescrever o que você fez;
+* Você vai começar a trabalhar em uma solução e vai ver que ela não funciona como imaginava, porém você já modificou tantos arquivos que fica extremamente dificil voltar atrás;
 
-Emphasis, aka italics, with _asterisks_ or _underscores_.
+A gente sabe que a vida de programador é cheia de emoções, mas é sempre bom evitar mais uma, né? 
 
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
+![Programar não é estressante, afirma João de 25 anos](./images/programar-nao-e-estressante.png)
 
-Combined emphasis with **asterisks and _underscores_**.
+Por isso a comunidade criou o que chamamos de Sistema de Controle de Versão e o principal deles é o **Git**.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
 
-## Lists
 
-1. First ordered list item
-2. Another item
-3. Actual numbers don't matter, just that it's a number
-
-- Unordered list can use asterisks
-
-* Or minuses
-
-- Or pluses
-
-## Links
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links.
-http://www.example.com or <http://www.example.com> and sometimes
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-## Images
-
-<div className="Image__Small">
-  <img
-    src="./images/article-image-2.jpg"
-    title="Logo Title Text 1"
-    alt="Alt text"
-  />
-</div>
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
-## Code and Syntax Highlighting
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-### JSX
-
-```jsx
-import React from "react";
-import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
-
-export default props => (
-  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-);
-```
-
-## Blockquotes
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-
-## Horizontal Rule
-
-Horizontal Rule
-
-Three or more...
-
----
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-
----
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
