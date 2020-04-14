@@ -29,6 +29,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-i18n"
+    },
+    {
       resolve: "@narative/gatsby-theme-novela",
       options: {
         contentPosts: "content/posts",
@@ -53,14 +56,14 @@ module.exports = {
         icon: `src/assets/favicon.png`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-og-images',
-      options: {
-        template: 'og',
-        domain: process.env.GATSBY_DOMAIN,
-        debug: true
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-og-images',
+    //   options: {
+    //     template: 'og',
+    //     domain: process.env.GATSBY_DOMAIN,
+    //     debug: true
+    //   }
+    // },
     // {
     //   resolve: `gatsby-plugin-netlify-cms`,
     //   options: {
