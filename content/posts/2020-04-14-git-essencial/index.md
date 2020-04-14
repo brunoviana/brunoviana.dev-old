@@ -1,9 +1,10 @@
 ---
 title: "Git Essencial: Tudo e apenas o que você precisa para o dia-a-dia"
+slug: git-essencial
 author: Bruno Viana
 date: 2020-04-14
 hero: ./images/hero.jpg
-excerpt: With the growing community interest in Gatsby, we hope to create more resources that make it easier for anyone to grasp the power of this incredible tool
+excerpt: Aprenda tudo que você precisa para trabalhar no dia-a-dia com Git.
 ---
 
 ## Introdução
