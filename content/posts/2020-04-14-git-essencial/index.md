@@ -36,5 +36,14 @@ A gente sabe que a vida de programador é cheia de emoções, mas é sempre bom 
 
 Por isso a comunidade criou o que chamamos de Sistema de Controle de Versão e o principal deles é o **Git**.
 
+## Conteúdo
+
+* O que é Git?
+* O básico para você começar a usar
+* Trabalhando com Git do jeito certo
+* Aprendendo a consertar cagadas
+* Referências rápidas
+
+
 
 
