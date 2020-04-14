@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://brunoviana.dev`,
     description: `Repositório com todos os aprendizados que tive e venho tendo. Não contém verdades absolutas.`,
     hero: {
-      heading: `Repositório de aprendizados. Isento verdades absolutas.`,
+      heading: `Repositório de aprendizados. Isento de verdades absolutas.`,
       maxWidth: 652,
     },
     social: [
