@@ -38,13 +38,13 @@ Por isso a comunidade criou o que chamamos de Sistema de Controle de Versão e o
 
 ## Conteúdo
 
-* O que é Git?
-* O básico para você começar a usar
-* Trabalhando com Git do jeito certo
-* Aprendendo a consertar cagadas
-* Referências rápidas
+1. O que é Git?
+2. O básico para você começar a usar
+3. Trabalhando com Git do jeito certo
+4. Aprendendo a consertar cagadas
+5. Referências rápidas
 
-## O que é Git
+## O que é Git 
 
 Como os problemas que você tem hoje são os mesmos que eu tive em 2008, e que são os mesmos que as pessoas tem desde a década de 80, começou a surgir o que chamamos de Sistemas de Controle de Versão.
 
