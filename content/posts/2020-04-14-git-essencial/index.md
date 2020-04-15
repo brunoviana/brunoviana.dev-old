@@ -100,7 +100,7 @@ Nesse diretório fica todo o controle do projeto, isso significa que se você co
 
 ### Estados dos arquivos e sessões
 
-Enquanto você trabalha no projeto o Git define diferentes estados aos arquivos para controlá-los. Entender isso é essencial pois é através desses estados que o Git vai te informar o que está acontecendo no projeto enquanto você trabalha.
+Enquanto você trabalha no projeto o Git define diferentes estados aos arquivos para controlá-los. Entender isso é essencial pois é através desses estados que o Git vai te informar o que está acontecendo no projeto enquanto você modifica.
 
 Mas antes de falar dos estados eu vou explicar as sessões, que são áreas onde o Git distribui os arquivos dependento do estado que ele tem. Existem 3 sessões principais:
 
