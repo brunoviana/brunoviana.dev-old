@@ -1,10 +1,10 @@
 ---
-title: "Git Essencial: Tudo e apenas o que você precisa para o dia-a-dia"
+title: "Git Essencial: Como trabalhar e resolver problemas do dia-a-dia"
 slug: git-essencial
 author: Bruno Viana
 date: 2020-04-14
 hero: ./images/hero.jpg
-excerpt: Aprenda tudo que você precisa para trabalhar no dia-a-dia com Git.
+excerpt: Entenda o básico para trabalhar com Git e resolver os problemas que vão aparecer no dia a dia
 ---
 
 ## Introdução
@@ -39,15 +39,84 @@ Por isso a comunidade criou o que chamamos de Sistema de Controle de Versão e o
 
 ## Conteúdo
 
-1. O que é Git?
-2. O básico para você começar a usar
-3. Trabalhando com Git do jeito certo
-4. Aprendendo a consertar cagadas
-5. Referências rápidas
+O objetivo principal desse artigo é servir de um guia para sempre que eu precisar lembrar de algum detalhe do funcionamento do Git ou de algum comando eu tenha uma forma fácil de pegar a informação.
+
+Para facilitar a leitura e posteriormente a busca do que preciso dividi o artigo da seguinte forma.
+
+1. **O que é Git**:<br />
+Aqui eu explico o que é e falo beeeem por cima dos primeiros conceitos;<br />
+2. **O básico para você começar a usar**:<br />
+Aqui eu começo a destrinchar os comandos básicos, aqueles que a gente sempre vê em todo artigo sobre Git, mas eu vou explicar da forma que ficou mais fácil eu entender;
+3. **Trabalhando com Git do jeito certo**:<br />
+Nessa seção eu falo de fluxos de trabalho e organização. Nem tudo no Git são comandos. Se você não seguir esses passos você e sua equipe terão vários problemas;<br />
+4. **Aprendendo a consertar cagadas**:<br />
+Já aqui eu vou explicar comandos que podem salvar seu dia ou que vão te dar apoio para você aplicar os conceitos da seção anterior;<br />
+5. **Referências rápidas**:<br />
+Como a ideia do artigo é servir de guia eu vou dedicar essa seção para listagem de comandos e explicação rápida para apenas copiar e colar 😬<br />
 
 ## O que é Git 
 
-Como os problemas que você tem hoje são os mesmos que eu tive em 2008, e que são os mesmos que as pessoas tem desde a década de 80, começou a surgir o que chamamos de Sistemas de Controle de Versão.
+Como os problemas que você tem hoje são os mesmos que eu tive em 2008, e que são os mesmos que as pessoas tem desde a década de 80, começou a surgir o que chamamos de Sistemas de Controle de Versão (em inglês Version Control System - VCS).
+
+Eu não vou gastar meus dedos escrevendo sobre a história do Git e qual a sua diferença em relação os demais VCS's. Não é o objetivo desse artigo e você pode ver isso muito bem explicado [nesse vídeo do Fabio Akita](https://www.youtube.com/watch?v=6Czd1Yetaac).
+
+O importante aqui é você saber que o Git é uma ferramenta que te permite **gerenciar versões do seu código**. 
+
+Isso significa que cada vez que você começa a escrever e informa ao Git que concluiu a modificação no código, ele guarda uma foto do projeto inteiro naquele momento. Isso seria uma *versão* do código.
+
+Se por qualquer motivo você precisa resgatar o estado do projeto em um determinado ponto, você só precisa dizer para o Git qual foto que você deseja e ele recria o projeto inteiro com todos os arquivos exatamente como eles estavam no momento que a foto foi tirada.
+
+Daí você me pergunta "*Beleza, então como eu faço para retirar essas fotos e usá-las quando preciso?*". É aí que vem a segunda parte desse artigo.
+
+## O básico para você começar a usar
+
+Eu disse que essa seção eu falaria do básico mas não falei 100% a verdade.
+
+Eu não vou te explicar como instalar o Git pois esse passo já está cheio de tutoriais na Internet, [inclusive no site oficial da ferramenta](https://git-scm.com/downloads).
+
+### Iniciando o Git
+
+Uma vez instalado o primeiro passo é você informar ao Git que você quer começar a versionar o seu projeto. Para isso você deve entrar na pasta do projeto e dentro dele digitar o comando `git init`.
+
+**Exemplo:**
+
+```bash
+$ cd projeto-garotão 
+
+$ git init
+Initialized empty Git repository in /Users/brunoviana/htdocs/projeto-garotão/.git/
+```
+
+Isso vai criar uma pasta `.git` na raíz do projeto. Como o nome do diretório começa com ponto ele ficará naturalmente oculto, mas se executar `ls -1a` para exibir os arquivos em lista incluindo os ocultos você consegue vê-lo.
+
+```bash
+$ ls -1a
+.
+..
+.git
+```
+
+Nesse diretório fica todo o controle do projeto, isso significa que se você copiar e colar em outro diretório, ou até mesmo em outro computador, você tem acesso ao histórico do projeto inteiro.
+
+### Estados dos arquivos e sessões
+
+Enquanto você trabalha no projeto o Git define diferentes estados aos arquivos para controlá-los. Entender isso é essencial pois é através desses estados que o Git vai te informar o que está acontecendo no projeto enquanto você trabalha.
+
+Mas antes de falar dos estados eu vou explicar as sessões, que são áreas onde o Git distribui os arquivos dependento do estado que ele tem. Existem 3 sessões principais:
+
+* **Working Directory**:<br />
+Como o nome diz é o diretório de trabalho. Nele possui todos os arquivos do projeto com a foto que você disse ao Git que quer ver. Isso significa que toda vida que você manda o Git recuperar uma foto ele vai mudar todo o Working Directory para como os arquivos estavam no momento que a foto foi tirada.<br /><br />
+Obviamente se o seu projeto é novo você terá nenhum arquivo e não estará trabalhando em cima de nenhuma foto;<br />
+* **Staging Area**:<br />
+Nessa área o Git guarda todos os arquivos candidatos a serem guardados na próxima foto.<br /><br />
+Isso te da liberdade de escolher o que quer guardar para ter uma organização melhor da linha do tempo de modificações.<br /><br />
+Em outras palavras, se você trabalhou em uma correção de um bug que modificou 2 arquivos e depois você modificou um terceiro arquivo para corrigir outro bug, você pode primeiro eleger os 2 primeiros arquivos para serem guardados na próxima foto que você irá tirar e posteriormente você tira outra foto com apenas o terceiro arquivo modificado.<br /><br />
+Isso te da a oportunidade de no futuro entender por que cada arquivo modificado e até voltar naquela modificação específica caso você perceba que aquele código não resolveu o bug como você esperava.
+* **Diretório .git**:<br />
+Sim, essa sessão é exatamente o diretório que mostrei anteriormente.<br /><br />
+O que acontece aqui é que uma vez que você confirmou para o Git que queria guardar as modificações que estavam em Staging Area ele finalmente bateu a foto do projeto inteiro com essas modificações adicionadas a ele e guardou dentro do seu banco de dados interno.
+
+
 
 
 
