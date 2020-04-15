@@ -21,7 +21,7 @@ Isso tem uma explicação simples: era a forma que a gente conhecia de trabalhar
 
 Imagina a merda que seria cada um ter o projeto na sua máquina e depois ter que consolidar tudo que foi feito e modificado em cada arquivo antes de subir para produção!
 
-Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles e quando você exclui arquivos pela rede, meu amigo, minha amiga, não tem lixeira não, tudo é apagado real oficial.
+Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles e quando você exclui arquivos pela rede, meu amigo e minha amiga, não tem lixeira não, tudo é apagado real oficial.
 
 Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passamos pelos mesmos problemas:
 
