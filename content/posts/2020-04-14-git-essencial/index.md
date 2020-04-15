@@ -23,7 +23,7 @@ Imagina a merda que seria cada um ter o projeto na sua máquina e depois ter que
 
 Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles e quando você exclui arquivos pela rede, meu amigo e minha amiga, não tem lixeira não, tudo é apagado real oficial.
 
-Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passamos pelos mesmos problemas:
+Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passar pelos mesmos problemas:
 
 * Seu computador deu pau no HD e você perdeu todo trabalho;
 * Você vai subir uma nova feature para produção, perceber que ela está com vários bugs e não vai ter uma maneira rápida voltar ao último estado em que o código funcionava corretamente;
