@@ -110,7 +110,7 @@ Obviamente se o seu projeto é novo você terá nenhum arquivo e não estará tr
 * **Staging Area**:<br />
 Nessa área o Git guarda todos os arquivos candidatos a serem guardados na próxima foto.<br /><br />
 Isso te da liberdade de escolher o que quer guardar para ter uma organização melhor da linha do tempo de modificações.<br /><br />
-Em outras palavras, se você trabalhou em uma correção de um bug que modificou 2 arquivos e depois você modificou um terceiro arquivo para corrigir outro bug, você pode primeiro eleger os 2 primeiros arquivos para serem guardados na próxima foto que você irá tirar e posteriormente você tira outra foto com apenas o terceiro arquivo modificado.<br /><br />
+Em outras palavras, se você trabalhou em uma correção de um bug que modificou 2 arquivos e depois você modificou um terceiro arquivo para corrigir outro bug, você pode primeiro eleger os 2 primeiros arquivos para serem guardados na foto que você vai tirar agora e posteriormente você tira outra foto com apenas o terceiro arquivo modificado.<br /><br />
 Isso te da a oportunidade de no futuro entender por que cada arquivo modificado e até voltar naquela modificação específica caso você perceba que aquele código não resolveu o bug como você esperava.
 * **Diretório .git**:<br />
 Sim, essa sessão é exatamente o diretório que mostrei anteriormente.<br /><br />
