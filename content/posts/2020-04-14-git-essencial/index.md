@@ -25,7 +25,7 @@ Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não er
 
 Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passar pelos mesmos problemas:
 
-* Seu computador deu pau no HD e você perdeu todo trabalho;
+* Seu computador var dar pau no HD e você vai todo trabalho;
 * Você vai subir uma nova feature para produção, perceber que ela está com vários bugs e não vai ter uma maneira rápida voltar ao último estado em que o código funcionava corretamente;
 * Você vai começar a programar uma nova feature e do nada vão mandar você parar para resolver um problema e vai ser um parto mandar isso para produção pois no meio da correção do bug tem código da feature inacabada;
 * Você vai fazer modificações em um arquivo e alguém da sua equipe vai editar o mesmo arquivo e vai sobrescrever o que você fez;
