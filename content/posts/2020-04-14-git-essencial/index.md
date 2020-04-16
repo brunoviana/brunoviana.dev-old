@@ -47,6 +47,8 @@ Aqui eu explico o que é e falo beeeem por cima dos primeiros conceitos;<br />
 Aqui eu começo a destrinchar os comandos básicos, aqueles que a gente sempre vê em todo artigo sobre Git, mas eu vou explicar da forma que ficou mais fácil eu entender;
 3. **Trabalhando com Git do jeito certo**:<br />
 Nessa seção eu falo de fluxos de trabalho e organização. Nem tudo no Git são comandos. Se você não seguir esses passos você e sua equipe terão vários problemas;<br />
+4. **Avançando mais um pouquinho**<br />
+Para conseguir trabalhar do jeito certo é preciso entender o Git um pouco mais a fundo.<br />
 4. **Aprendendo a consertar cagadas**:<br />
 Já aqui eu vou explicar comandos que podem salvar seu dia ou que vão te dar apoio para você aplicar os conceitos da seção anterior;<br />
 5. **Referências rápidas**:<br />
