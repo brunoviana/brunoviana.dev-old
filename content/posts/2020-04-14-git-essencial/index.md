@@ -253,6 +253,8 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 (END)
 ```
 
+### Guardando alterações diferentes no mesmo arquivo
+
 Se você fez uma alteração em um arquivo que já estava Staged o Git vai manter em Staging Area apenas as modificações que você adicionou.
 
 Veja o exemplo abaixo.
@@ -362,6 +364,8 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
     criado teste.txt com versao 1
 ```
 
+### Analisando modificações nos commits
+
 Como eu faço questão de te provar o que falei acima vamos analisar cada commit.
 
 Perceba que nas linhas 3, 9, 15, 21 existe um número enorme logo seguido da palavra "commit". Esse é o identificador do commit. Vamos usá-lo para observar as modificações entre um commit e outro.
@@ -410,6 +414,8 @@ index 352c59f..c45fcbe 100644
 ```
 
 Agora as linhas 14 e 15 mostra o que queriamos comprovar.
+
+### Removendo commits desnecessários
 
 Por fim, para finalizar essa seção de conceitos básicos, vamos supor que eu percebi que os 2 últimos commits poderiam ser um só, afinal, eu não quero trocentos commits me atrapalhando no dia que eu precisar voltar alguma versão.
 
