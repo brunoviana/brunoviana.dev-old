@@ -13,20 +13,20 @@ Recentemente eu lembrei de um pobre colega de trabalho que ficou uma noite intei
 
 Sim, ele foi forçado a fazer em uma noite o trabalho de uma semana!!
 
-O ano era mais ou menos 2007-2008, e nessa época todo o código de todos os projetos ficavam em um servidor compartilhado na rede e a gente programava direto dentro do servidor. 
+Lá pra 2007-2008 o código de todos os projetos da empresa que eu trabalhava ficavam em um servidor compartilhado na rede e a gente programava direto dentro do servidor. 
 
 Isso tem uma explicação simples: era a forma que a gente conhecia de trabalhar mais de uma pessoa no mesmo projeto.
 
 Imagina a merda que seria cada um ter o projeto na sua máquina e depois ter que consolidar tudo que foi feito e modificado em cada arquivo antes de subir para produção!
 
-Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles e quando você exclui arquivos pela rede, meu amigo e minha amiga, não tem lixeira não, tudo é apagado real oficial.
+Acontece que um outro ~~jumento~~ nobre colega achou que alguns arquivos não eram mais essenciais e saiu sapecando o DELETE neles, e quando você exclui arquivos pela rede, meu amigo e minha amiga, não tem lixeira não, tudo é apagado real oficial.
 
-Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos sempre passar pelos mesmos problemas:
+Não importa quanto tempo de experiência ou a linguagem de programação, todos nós vamos passar pelos mesmos problemas:
 
-* Seu computador var dar pau no HD e você vai perder todo trabalho;
-* Você vai subir uma nova feature para produção, perceber que ela está com vários bugs e não vai ter uma maneira rápida voltar ao último estado em que o código funcionava corretamente;
-* Você vai começar a programar uma nova feature e do nada vão mandar você parar para resolver um problema e vai ser um parto mandar isso para produção pois no meio da correção do bug tem código da feature inacabada;
-* Você vai fazer modificações em um arquivo e alguém da sua equipe vai editar o mesmo arquivo e vai sobrescrever o que você fez;
+* Seu computador var dar pau no HD e você vai perder todo trabalho;<br /><br />
+* Você vai subir uma nova feature para produção, perceber que ela está com vários bugs e não vai ter uma maneira rápida voltar ao último estado em que o código funcionava corretamente;<br /><br />
+* Você vai começar a programar uma nova feature e do nada vão mandar você parar para resolver um problema e vai ser um parto mandar isso para produção pois no meio da correção do bug tem código da feature inacabada;<br /><br />
+* Você vai fazer modificações em um arquivo e alguém da sua equipe vai editar o mesmo arquivo e vai sobrescrever o que você fez;<br /><br />
 * Você vai começar a trabalhar em uma solução e vai ver que ela não funciona como imaginava, porém você já modificou tantos arquivos que fica extremamente dificil voltar atrás;
 
 A gente sabe que a vida de programador é cheia de emoções, mas é sempre bom evitar mais uma, né? 
@@ -98,34 +98,11 @@ $ ls -1a
 
 Nesse diretório fica todo o controle do projeto, isso significa que se você copiar e colar em outro diretório, ou até mesmo em outro computador, você tem acesso ao histórico do projeto inteiro.
 
-### Estados dos arquivos e sessões
+### Começando a guardar as fotos
 
-Enquanto você trabalha no projeto o Git define diferentes estados aos arquivos para controlá-los. Entender isso é essencial pois é através desses estados que o Git vai te informar o que está acontecendo no projeto enquanto você modifica.
+Uma vez que você começa a trabalhar o Git vai definindo estados aos arquivos. Vou usar o meu projeto de exemplo para poder explicar. 
 
-#### Sessões
-
-Mas antes de falar dos estados eu vou explicar as sessões, que são áreas onde o Git distribui os arquivos dependento do estado que ele tem. Existem 3 sessões principais:
-
-* **Working Tree**:<br />
-Essa área é simplesmente a sua área de trabalho onde estão os arquivos que você quer...<br /><br />
-*...wait for it*<br /><br />
-...trabalhar.  <br /><br />
-Ou seja, aqui estão todos os arquivos do projeto com a foto que você disse ao Git que quer ver. Isso significa que toda vida que você manda o Git recuperar uma foto ele vai mudar todo o Working Tree para como os arquivos estavam no momento que a foto foi tirada.<br /><br />
-Obviamente se o seu projeto é novo você terá nenhum arquivo e não estará trabalhando em cima de nenhuma foto;<br />
-* **Staging Area**:<br />
-Nessa área o Git guarda todos os arquivos candidatos a serem guardados na próxima foto.<br /><br />
-Isso te da liberdade de escolher o que quer guardar para ter uma organização melhor da linha do tempo de modificações.<br /><br />
-Em outras palavras, se você trabalhou em uma correção de um bug que modificou 2 arquivos e depois você modificou um terceiro arquivo para corrigir outro bug, você pode eleger os 2 primeiros arquivos para serem guardados na foto que você vai tirar agora e, posteriormente, você tira outra foto com apenas o terceiro arquivo modificado.<br /><br />
-Isso te da a oportunidade de no futuro entender por que cada arquivo modificado e até voltar naquela modificação específica caso você perceba que aquele código não resolveu o bug como você esperava.
-* **Diretório .git**:<br />
-Sim, essa sessão é exatamente o diretório que mostrei anteriormente.<br /><br />
-O que acontece aqui é que uma vez que você confirmou para o Git que queria guardar as modificações que estavam em Staging Area ele finalmente bateu a foto do projeto inteiro com essas modificações adicionadas e guardou dentro do seu banco de dados interno.
-
-#### Estados
-
-Uma vez que você começa a trabalhar o Git vai definindo estados aos arquivos.
-
-Vou usar o meu projeto de exemplo para poder explicar. Antes de começar eu vou usar o comando `git status` para me dar uma visão geral de como estão os meus arquivos.
+Antes de começar eu vou usar o comando `git status` para me dar uma visão geral de como estão os meus arquivos.
 
 ```bash
 $ git status   
@@ -136,9 +113,13 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
-Basicamento o Git me disse, na linha 5, que não tem nenhuma foto batida (que ele chama de commits) e que não tenho nenhum arquivo modificado. Vamos começar a modificar para ver o que ele vai dizer.
+Basicamento o Git me disse, na linha 5, que não tem nenhuma foto batida. Essas fotos ele chama de **Commits** e é assim que vou chamar a partir de agora. 
 
-Por enquanto ignora as demais informações que elas farão sentido mais pra frente.
+Ele também me diz que não tenho nenhum arquivo modificado. 
+
+Vamos começar a modificar para ver o que ele vai dizer.
+
+Ah, por enquanto ignora as demais informações do `git status` que elas farão sentido mais pra frente.
 
 ```bash
 $ echo 'versão 1' > teste.txt
@@ -156,9 +137,12 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-Na linha 9 o Git lista todos os arquivos que estão "Untracked" e me diz, bem ali na linha 12, que o meu arquivo `teste.txt` é um deles.
 
-Arquivos **Untracked** são todos os arquivos que você modificou mas ainda não foram eleitos a serem gravados na próxima foto. Para fazer isso use o comando `git add nome-do-arquivo`.
+Na linha 1 criei um simples arquivo chamado `teste.txt` com o conteúdo "versão 1" e depois executei, na linha 3, `git status` novamente.
+
+Na linha 9, o Git lista todos os arquivos que estão "Untracked" e me diz, bem ali na linha 12, que o meu arquivo `teste.txt` é um deles.
+
+Arquivos **Untracked** são todos os arquivos que você modificou mas ainda não foram eleitos a serem gravados no próximo commit. Para fazer isso use o comando `git add nome-do-arquivo`.
 
 ```bash
 $ git add teste.txt
@@ -176,9 +160,11 @@ Changes to be committed:
 
 ```
 
-Agora o Git está me informando que o arquivo `teste.txt` possui modificações prontas para irem na próxima foto. Agora o seu estado é **Staged**, ou seja, este arquivo esta na **Staging Area** que eu falei mais acima.
+Agora o Git está me informando que o arquivo `teste.txt` possui modificações prontas para irem no próximo commit. 
 
-Agora eu estou satisfeito com as modificações que fiz e finalmente vou bater a foto do projeto. O Git chama essa foto de **Commit** e usamos o comando `git commit -m 'mensagem do commit'`.
+Dessa vez o seu estado é **Staged**, ou seja, este arquivo esta na **Staging Area**, uma área onde o Git separa todos os arquivos eleitos para irem no próximo commit.
+
+Agora eu estou satisfeito com as modificações que fiz e finalmente vou fazer o commit usando o comando `git commit -m 'mensagem do commit'`.
 
 ```bash
 $ git commit -m "criado teste.txt com versao 1"
@@ -205,7 +191,9 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 (END)
 ```
 
-Vamos olhar o status do nosso projeto novamente para ver como ele ficou.
+Observe na linha 7 a mensagem que usei aparecendo.
+
+Agora, vamos olhar o status do nosso projeto novamente para ver como ele ficou.
 
 ```bash
 $ git status
@@ -214,9 +202,11 @@ On branch master
 nothing to commit, working tree clean
 ```
 
-Agora eu decidi fazer uma segunda modificação. Vamos ver como vai ficar o status do projeto novamente.
+Agora vamos fazer uma segunda modificação e ver como fica os status do projeto.
 
 ```bash
+$ echo 'versão 2' > teste.txt
+
 $ git status
 
 On branch master
@@ -231,7 +221,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Ótimo. 
 
-Podemos ver que meu arquivo possui um novo estado chamado de **Modified**, isso significa que ele já existe no último commit, porém ele não é mais ou mesmo pois sofreu alterações.
+Podemos ver que meu arquivo possui um novo estado chamado de **Modified**, isso significa que ele já existe no último commit, porém ele não é mais o mesmo pois sofreu alterações.
 
 Isso significa que eu preciso usar o `git add` novamente para as alterações irem no próximo commit.
 
@@ -250,6 +240,251 @@ Se eu rodar `git log` de novo verei que tem um novo commit.
 $ git log
 
 commit b49edc52ed20107b673ca9eae008527ef61c8091 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:45:27 2020 -0300
+
+    modifiquei arquivo teste.txt
+
+commit b13ed54d3b9f92d7d4e5e0dc98e0d57798655c21
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:30:13 2020 -0300
+
+    criado teste.txt com versao 1
+(END)
+```
+
+Se você fez uma alteração em um arquivo que já estava Staged o Git vai manter em Staging Area apenas as modificações que você adicionou.
+
+Veja o exemplo abaixo.
+
+```bash
+$ echo 'versão 3' > teste.txt 
+
+$ git status
+
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   teste.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git add teste.txt 
+
+$ echo 'versão 3.1' > teste.txt
+
+$ git status
+
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   teste.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   teste.txt
+```
+
+Na linha 1 eu fiz uma terceira alteração. Na linha 3 eu consulto o status para garantir que meu arquivo ainda não estava em Staging.
+
+Na linha 14 eu finalmente adiciono ele em Staging, porém eu resolvi fazer mais uma pequena modificação na linha 16 e na linha 18 consulto o status novamente.
+
+Perceba que agora o Git me falou, na linha 24, que o arquivo `teste.txt` foi modificado e **está** em Staging. Também na linha 30 diz que o mesmo arquivo foi modificado e **não está** em Staging.
+
+Parece confuso, mas faz todo sentido quando você entende que **o Git não guarda o arquivo inteiro em Staging, mas sim, as modificações linha a linha**.
+
+Em outras palavras, na primeira vez que executei `git add` ele guardou o conteúdo "versão 3". Depois que modifiquei o arquivo o Git manteve em Staging a modificação com conteúdo "versão 3".
+
+Se eu quisesse que no proximo commit fosse a modificação "versão 3.1", e não "versão 3", eu precisaria executar `git add novamente`.
+
+Para efeitos didáticos vou commitar e ver o status.
+
+```bash
+$ git commit -m "commitando versão 3"
+
+[master bd6052e] commitando versão 3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git status
+
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   teste.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+Como previamos, mesmo commitando o Git ainda me diz que tenho modificações para serem commitadas. Vou commitar mais uma vez.
+
+```bash
+$ git add teste.txt 
+
+$ git commit -m "commitando versão 3.1 agora"
+
+[master 06ef804] commitando versão 3.1 agora
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ ```
+
+Agora meu Git log está assim:
+
+```bash
+$ git log
+
+commit 06ef8049b732ff991a6a20cf323d258869cc0545 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 08:27:12 2020 -0300
+
+    commitando versão 3.1 agora
+
+commit bd6052e9055a18ccb18eff9563eca97ba0f9a35f
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 08:12:27 2020 -0300
+
+    commitando versão 3
+
+commit b49edc52ed20107b673ca9eae008527ef61c8091
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:45:27 2020 -0300
+
+    modifiquei arquivo teste.txt
+
+commit b13ed54d3b9f92d7d4e5e0dc98e0d57798655c21
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:30:13 2020 -0300
+
+    criado teste.txt com versao 1
+```
+
+Como eu faço questão de te provar o que falei acima vamos analisar cada commit.
+
+Perceba que nas linhas 3, 9, 15, 21 existe um número enorme logo seguido da palavra "commit". Esse é o identificador do commit. Vamos usá-lo para observar as modificações entre um commit e outro.
+
+Primeiro vamos ver o terceiro commit (contando de baixo para cima).
+
+```bash
+$ git show bd6052e9055a18ccb18eff9563eca97ba0f9a35f
+
+commit bd6052e9055a18ccb18eff9563eca97ba0f9a35f
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 08:12:27 2020 -0300
+
+    commitando versão 3
+
+diff --git a/teste.txt b/teste.txt
+index 3291974..352c59f 100644
+--- a/teste.txt
++++ b/teste.txt
+@@ -1 +1 @@
+-versão 2
++versão 3
+(END)
+```
+Na linha 14 você vê qual o conteúdo do arquivo antes e na linha 15 o conteúdo que foi no commit.
+
+Agora vamos fazer o mesmo com o último commit.
+
+```bash
+$ git show 06ef8049b732ff991a6a20cf323d258869cc0545
+
+commit 06ef8049b732ff991a6a20cf323d258869cc0545 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 08:27:12 2020 -0300
+
+    commitando versão 3.1 agora
+
+diff --git a/teste.txt b/teste.txt
+index 352c59f..c45fcbe 100644
+--- a/teste.txt
++++ b/teste.txt
+@@ -1 +1 @@
+-versão 3
++versão 3.1
+(END)
+```
+
+Agora as linhas 14 e 15 mostra o que queriamos comprovar.
+
+Por fim, para finalizar essa seção de conceitos básicos, vamos supor que eu percebi que os 2 últimos commits poderiam ser um só, afinal, eu não quero trocentos commits me atrapalhando no dia que eu precisar voltar alguma versão.
+
+Para isso vou usar o comando `git reset` informando que quero resetar os 2 últimos commits.
+
+```bash
+$ git reset HEAD~2
+
+Unstaged changes after reset:
+M	teste.txt
+```
+
+A palavra HEAD é literalmente a cabeça, ou seja, sempre que você ver essa palavra entenda que ele representa o commit atual que seus arquivos estão carregados.
+
+Agora um `git log` vai me revelar algumas coisas interessantes.
+
+```bash
+$ git log
+
+commit b49edc52ed20107b673ca9eae008527ef61c8091 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:45:27 2020 -0300
+
+    modifiquei arquivo teste.txt
+
+commit b13ed54d3b9f92d7d4e5e0dc98e0d57798655c21
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:30:13 2020 -0300
+
+    criado teste.txt com versao 1
+```
+
+Os 2 últimos commits foram apagados e o segundo commit virou o HEAD. Na teoria meus arquivos deveriam estar no estado de quando realizei o segundo commit, porém ao ver o conteúdo deles temos uma surpresa.
+
+```bash
+$ cat teste.txt 
+
+versão 3.1
+```
+
+Isso acontece por que a forma que executamos reset é chamado de **soft reset**. Isso significa que mesmo que o Git volte vários commits ele mantém em Staging as modificações do último commit realizado. Um `git status` ajuda a visualizar isso melhor.
+
+```bash
+$ git status
+
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   teste.txt
+```
+
+Se eu quisesse descartar a modificação bastava seguir o conselho que o Git me da na linha 5 e executar `git reset HEAD teste.txt`, mas esse não é o caso. 
+
+O que eu quero aqui é guardar a modificação 3 em um único commit no lugar de dois commits, e é o que vou fazer agora.
+
+```bash
+$ git commit -m "terceira modificação do arquivo"
+
+[master 4aae120] terceira modificação do arquivo
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ ```
+
+ Agora vamos ver como ficou o log.
+
+ ```bash
+ $ git log
+
+ commit 4aae12033921d3ab8029c80c9eeed4b87fcb8118 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 09:13:16 2020 -0300
+
+    terceira modificação do arquivo
+
+commit b49edc52ed20107b673ca9eae008527ef61c8091
 Author: Bruno Viana <brunoviana@gmail.com>
 Date:   Thu Apr 16 10:45:27 2020 -0300
 
