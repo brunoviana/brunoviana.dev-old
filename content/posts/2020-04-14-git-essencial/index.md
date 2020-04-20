@@ -62,7 +62,7 @@ Eu não vou gastar meus dedos escrevendo sobre a história do Git e qual a sua d
 
 O importante aqui é você saber que o Git é uma ferramenta que te permite **gerenciar versões do seu código**. 
 
-Isso significa que cada vez que você começa a escrever e informa ao Git que concluiu a modificação no código, ele guarda uma foto do projeto inteiro naquele momento. Isso seria uma *versão* do código.
+Isso significa que cada vez que você começa a escrever e informa ao Git que concluiu a modificação no código, ele guarda uma foto do projeto **inteiro** naquele momento. Isso seria uma *versão* do código.
 
 Se por qualquer motivo você precisa resgatar o estado do projeto em um determinado ponto, você só precisa dizer para o Git qual foto que você deseja e ele recria o projeto inteiro com todos os arquivos exatamente como eles estavam no momento que a foto foi tirada.
 
@@ -140,7 +140,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Na linha 1 criei um simples arquivo chamado `teste.txt` com o conteúdo "versão 1" e depois executei, na linha 3, `git status` novamente.
 
-Na linha 9, o Git lista todos os arquivos que estão "Untracked" e me diz, bem ali na linha 12, que o meu arquivo `teste.txt` é um deles.
+Na linha 9, o Git lista todos os arquivos que estão "Untracked" (calma!) e me diz, bem ali na linha 12, que o meu arquivo `teste.txt` é um deles.
 
 Arquivos **Untracked** são todos os arquivos que você modificou mas ainda não foram eleitos a serem gravados no próximo commit. Para fazer isso use o comando `git add nome-do-arquivo`.
 
@@ -160,7 +160,7 @@ Changes to be committed:
 
 ```
 
-Agora o Git está me informando que o arquivo `teste.txt` possui modificações prontas para irem no próximo commit. 
+Agora que rodei o comando (linha 1), o Git está me informando que o arquivo `teste.txt` possui modificações prontas para irem no próximo commit (linha 12). 
 
 Dessa vez o seu estado é **Staged**, ou seja, este arquivo esta na **Staging Area**, uma área onde o Git separa todos os arquivos eleitos para irem no próximo commit.
 
@@ -368,7 +368,7 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 
 Como eu faço questão de te provar o que falei acima vamos analisar cada commit.
 
-Perceba que nas linhas 3, 9, 15, 21 existe um número enorme logo seguido da palavra "commit". Esse é o identificador do commit. Vamos usá-lo para observar as modificações entre um commit e outro.
+Perceba que nas linhas 3, 9, 15, 21 existe um número enorme logo depois da palavra "commit". Esse é o identificador do commit. Vamos usá-lo para observar as modificações entre um commit e outro.
 
 Primeiro vamos ver o terceiro commit (contando de baixo para cima).
 
