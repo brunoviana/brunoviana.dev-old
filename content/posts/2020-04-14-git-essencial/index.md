@@ -507,3 +507,12 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 ⚠️ **ATENÇÃO 1**: Esse comando não tem volta. Se você resetar commits não terá como recuperá-los.
 
 ⚠️ **ATENÇÃO 2 - A missão**: Nunca use `git reset` em commits que já estão compartilhados em *remote*. Se não souber o que é remote eu explico mais a frente.
+
+## Trabalhando com Git da forma certa
+
+- Como funciona por dentro
+- Use commits para contar uma história (mantenha ele organizado)
+- organize seus commits 
+- resolvendo cagadas
+- Use branchs
+- Recomendações para trabalhar remoto
