@@ -553,9 +553,9 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 
 Pronto!
 
-Vou usar agora um comando `git cat-file` que é um comando que me da o conteúdo de um objeto a partir do hash. 
+Agora vou usar o `git cat-file` que é um comando interno que me da o conteúdo de um objeto a partir do hash.
 
-Você não precisa decorá-lo pois você nunca vai precisar usá-lo. Os comandos básicos do Git já o usam por baixo dos panos.
+Você não precisa decorá-lo pois você nunca vai precisar, os comandos básicos do Git já o usam por baixo dos panos.
 
 ```bash
 $ git cat-file -p 4aae12033921d3ab8029c80c9eeed4b87fcb8118               
