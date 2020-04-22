@@ -510,9 +510,98 @@ Date:   Thu Apr 16 10:30:13 2020 -0300
 
 ## Trabalhando com Git da forma certa
 
-- Como funciona por dentro
-- Use commits para contar uma história (mantenha ele organizado)
+Nessa seção eu pretendo te dizer quais as boas práticas para trabalhar usando Git e ter o mínimo de problemas.
+
+Aqui a gente já precisa entrar um pouco a fundo(só um pouco, bem na beiradinha) em como o Git trabalha. 
+
+Eu digo isso por que eu passei um tempo trabalhando com Git sem entender os conceitos que vou escrever aqui e os cabelos brancos brotaram rápido
+
+Então vamos começar...
+
+### Como funciona por dentro
+
+A primeira coisa que você tem que entender é que tudo que o Git guarda em seu banco de dados ele define um identificador para ele.
+
+Esse identificador é nada mais do que a junção de um cabeçalho + conteúdo do que ele ta guardando passado por uma criptografia do tipo SHA-1.
+
+Essa criptografia gera um hash que será o id daquele objeto (arquivo, diretório ou commit).
+
+Vamos pegar o log de commits da seção anterior:
+
+ ```bash
+ $ git log
+
+ commit 4aae12033921d3ab8029c80c9eeed4b87fcb8118 (HEAD -> master)
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Fri Apr 17 09:13:16 2020 -0300
+
+    terceira modificação do arquivo
+
+commit b49edc52ed20107b673ca9eae008527ef61c8091
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:45:27 2020 -0300
+
+    modifiquei arquivo teste.txt
+
+commit b13ed54d3b9f92d7d4e5e0dc98e0d57798655c21
+Author: Bruno Viana <brunoviana@gmail.com>
+Date:   Thu Apr 16 10:30:13 2020 -0300
+
+    criado teste.txt com versao 1
+(END)
+```
+
+Pronto!
+
+Vou usar agora um comando `git cat-file` que é um comando que me da o conteúdo de um objeto a partir do hash. 
+
+Você não precisa decorá-lo pois você nunca vai precisar usá-lo. Os comandos básicos do Git já o usam por baixo dos panos.
+
+```bash
+$ git cat-file -p 4aae12033921d3ab8029c80c9eeed4b87fcb8118               
+
+tree df8b6a6f5a6196ed246e157c379e05c88c08f9ff
+parent b49edc52ed20107b673ca9eae008527ef61c8091
+author Bruno Viana <brunoviana@gmail.com> 1587125596 -0300
+committer Bruno Viana <brunoviana@gmail.com> 1587125596 -0300
+
+terceira modificação do arquivo
+```
+
+Rodei o `git cat-file` usando o hash do último commit que o `git log` me informou.
+
+Preste atenção como na linha 8 ele me da a mensagem do commit.
+
+Temos duas coisas mais importantes aqui.
+
+A primeira é na linha 3, onde o Git está me falando para qual "árvore" este commit está apontando. Essa árvore é simplesmente o diretório raíz do seu projeto. 
+
+O Git faz isso pois ele também considera a estrutura de diretórios e arquivos um objeto e guarda o hash dela. Assim se a estrutura mudar ele consegue mapear as diferenças.
+
+Vou rodar o `git cat-file` nessa árvore pra te mostrar como ele guarda isso:
+
+```bash
+$ git cat-file -p df8b6a6f5a6196ed246e157c379e05c88c08f9ff
+
+100644 blob c45fcbea257ca95cded71f01c2648eb4d7859d87	teste.txt
+```
+
+Agora vemos na linha 3 a listagem do único arquivo que tenho nesse diretório.
+
+A segunda coisa para perceber, lá no `git cat-file` do commit, é a linha 4. Ele está informando qual que é o commit pai dele.
+
+Isso acontece por que os commits seguem uma espécie de linha do tempo que é possível mudar, igual os Vingadores fizeram em Endgame.
+
+![Vingadores discutindo como mudar os commits do mundo](./images/vingadores-ultimato-linha-do-tempo-commits-no-git.jpg)
+
+Essa parte da mudança vai ficar um pouco mais pra frente, principalmente quando eu abordar *branchs*.
+
+Então seguindo essa ideia, a linha do tempo dos commits até agora é essa:
+
+![Linha do tempo dos commits até agora](./images/linha-do-tempo-commits.001.png)
+
 - organize seus commits 
-- resolvendo cagadas
+- Use commits para contar uma história (mantenha ele organizado)
+  - resolvendo cagadas
 - Use branchs
 - Recomendações para trabalhar remoto
