@@ -572,23 +572,7 @@ Rodei o `git cat-file` usando o hash do último commit que o `git log` me inform
 
 Preste atenção como na linha 8 ele me da a mensagem do commit.
 
-Temos duas coisas mais importantes aqui.
-
-A primeira é na linha 3, onde o Git está me falando para qual "árvore" este commit está apontando. Essa árvore é simplesmente o diretório raíz do seu projeto. 
-
-O Git faz isso pois ele também considera a estrutura de diretórios e arquivos um objeto e guarda o hash dela. Assim se a estrutura mudar ele consegue mapear as diferenças.
-
-Vou rodar o `git cat-file` nessa árvore pra te mostrar como ele guarda isso:
-
-```bash
-$ git cat-file -p df8b6a6f5a6196ed246e157c379e05c88c08f9ff
-
-100644 blob c45fcbea257ca95cded71f01c2648eb4d7859d87	teste.txt
-```
-
-Agora vemos na linha 3 a listagem do único arquivo que tenho nesse diretório.
-
-A segunda coisa para perceber, lá no `git cat-file` do commit, é a linha 4. Ele está informando qual que é o commit pai dele.
+Tente não se preocupar com demais as informações que estão guardadas nesse commit pois elas não são relevantes, exceto a linha 4, pois ela está informando qual que é o commit pai desde commit que estamos analisando.
 
 Isso acontece por que os commits seguem uma espécie de linha do tempo que é possível mudar, igual os Vingadores fizeram em Endgame.
 
