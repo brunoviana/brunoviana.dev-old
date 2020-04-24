@@ -568,24 +568,85 @@ committer Bruno Viana <brunoviana@gmail.com> 1587125596 -0300
 terceira modificação do arquivo
 ```
 
-Rodei o `git cat-file` usando o hash do último commit que o `git log` me informou.
+Rodei o `git cat-file` usando o hash do último commit que o `git log` me informou. Da linha 3 a linha 8 é o conteúdo do commit.
 
 Preste atenção como na linha 8 ele me da a mensagem do commit.
 
-Tente não se preocupar com demais as informações que estão guardadas nesse commit pois elas não são relevantes, exceto a linha 4, pois ela está informando qual que é o commit pai desde commit que estamos analisando.
+Tente não se preocupar com demais as informações que estão guardadas nesse commit pois elas não são relevantes para este artigo, exceto a linha 4, pois ela está informando qual que é o commit pai desde commit que estamos analisando.
 
 Isso acontece por que os commits seguem uma espécie de linha do tempo que é possível mudar, igual os Vingadores fizeram em Endgame.
 
 ![Vingadores discutindo como mudar os commits do mundo](./images/vingadores-ultimato-linha-do-tempo-commits-no-git.jpg)
 
-Essa parte da mudança vai ficar um pouco mais pra frente, principalmente quando eu abordar *branchs*.
-
 Então seguindo essa ideia, a linha do tempo dos commits até agora é essa:
 
 ![Linha do tempo dos commits até agora](./images/linha-do-tempo-commits.001.png)
 
+Muito bem, muito bem, mas como saber disso vai te ajudar a trabalhar direto com o Git?
+
+Vai te ajudar a consertar as cagadas caso você faça alguma coisa errada. Então a partir daqui eu vou te dizer a forma certa de trabalhar e como resolver caso você não siga o que eu indiquei.
+
+Não se preocupe que fazer cagadas é mega normal. Muitas das coisas que eu vou listar abaixo eu - e pessoas mais experiêntes que eu - fazemos todos os dias. O importante mesmo é estar ciente do problema e corrigir pra ficar tudo bonitinho.
+
+Então vamos à lista.
+
+#### 1. Organize seus commits
+
+<br />
+
+> "Poxa, mas que dica, hein?"<br />
+> \- AGORA, Você
+
+Eu sei que parece que não é uma dica que vai mudar sua vida, mas é impressionante como é comum - principalmente quando estamos começando com Git - a criar commits desorganizados que não dizem nada.
+
+A principio parece chato, mas vamos brincar de fazer de conta aqui. 
+
+Imagina que você trabalhou em um projeto que por algum motivo, você passou 1 mês inteiro sem pegar nele e do nada alguém encontrou um bug. 
+
+Você lembra de todo código escrito no projeto depois de um mês? 
+
+**É claro que não!**
+
+Quais as últimas coisas que foram atualizadas? Será que é um problema antigo? Na última vez que mexi no projeto eu alterei alguma coisa nessa parte onde está bugando?
+
+Agora que você usa Git e utiliza ferramentas como Github ou Bitbucket para guardar seus commits remotamente, você vai lá investigar.
+
+Abre o navegador...
+
+Abre o repositório...
+
+Clica em "Ver commits"...
+
+E...
+
+![Commits desorganizados no Bitbucket](./images/commits-desorganizados-no-bitbucket.png)
+
+> "POOTA QUE ME PARIU"<br />
+> \- AMANHÃ, Você
+
+<iframe src="https://giphy.com/embed/NnyqfcowpXZOU" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/NnyqfcowpXZOU">via GIPHY</a></p>
+
+Para evitar problemas na hora de analisar um commit - ou até para facilitar a vida do coleguinha caso você trabalhe com [Code Review](https://medium.com/trainingcenter/qual-o-real-valor-do-code-review-para-uma-equipe-de-desenvolvimento-f43f894c0a04) - é imprescindivel que os commits estejam organizados e com as mensagens bem escritas.
+
+Para facilitar o entendimento de como organizar os commits basta você imaginar que **seus commits devem contar a história da evolução da sua aplicação**.
+
+![Contando histórias através de commits](./images/contando-historias-atraves-de-commits.png)
+
+Na imagem acima eu tentei ao máximo colocar em prática este pensamento(a ordem de criação é de baixo para cima). 
+
+Eu sei que dá para melhorar, mas do jeito que tá eu já consigo entender exatamente o que eu fiz naquele commit e vou em cima das modificações.
+
+Também dessa forma, no momento do Code Review, quando outra pessoa da minha equipe for ler os commits, ela conseguirá entender exatamente o que eu fiz e pode me dizer como melhorar meu código.
+
+##### Escrevi um commit que não ficou bom
+
+as
+
+##### Commitei mas depois percebi que faltou algo
+
 - organize seus commits 
 - Use commits para contar uma história (mantenha ele organizado)
   - resolvendo cagadas
+- comitei na master e agora?
 - Use branchs
 - Recomendações para trabalhar remoto
