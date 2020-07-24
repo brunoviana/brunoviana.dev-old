@@ -1,5 +1,6 @@
 ---
 title: "Guia Rápido: Git no dia-a-dia"
+slug: ""
 description: ""
 date: 2020-07-24 17:17:58
 author: bruno-viana

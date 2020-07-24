@@ -1,6 +1,5 @@
 ---
 title: "Como funciona: Git"
-slug: "git-como-funciona"
 description: ""
 date: 2020-07-24 17:18:01
 author: bruno-viana
