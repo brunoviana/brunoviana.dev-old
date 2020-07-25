@@ -16,7 +16,7 @@
   }
 
   h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold text-black my-6;
+    @apply font-sans font-bold text-gray-200 my-6;
   }
 
   h5, h6 {
@@ -42,18 +42,18 @@
   }
 
   pre.shiki {
-    @apply bg-gray-codeblock !important;
-    @apply border border-gray-300 -mx-6 p-6 mb-4 text-sm font-mono leading-code overflow-x-auto scrolling-touch;
+    @apply bg-gray-codeblock;
+    @apply border border-gray-700 -mx-6 p-6 mb-4 text-sm font-mono leading-code overflow-x-auto scrolling-touch;
   }
 
   code.shiki {
-    @apply bg-gray-100 text-gray-700 !important;
-    @apply border border-gray-300 p-4 block mb-4 font-mono text-sm leading-code overflow-x-auto scrolling-touch;
+    @apply bg-gray-100 text-gray-700;
+    @apply border border-gray-700 p-4 block mb-4 font-mono text-sm leading-code overflow-x-auto scrolling-touch;
   }
 
   .shiki-inline {
-    @apply bg-gray-100 text-gray-700 !important;
-    @apply border border-gray-300 text-xs px-2 py-1 rounded;
+    @apply bg-gray-100 text-gray-700;
+    @apply border border-gray-700 text-xs px-2 py-1 rounded;
   }
 
   mark {

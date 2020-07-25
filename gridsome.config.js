@@ -1,7 +1,7 @@
 module.exports = {
   siteName: 'Blog pessoal sobre engenharia e desenvolvimento de software',
   siteDescription: "Bruno Viana | Blog pessoal sobre engenharia e desenvolvimento de software",
-  siteUrl: 'https://gridsome-starter-bleda.netlify.com',
+  siteUrl: 'https://brunoviana.dev',
   titleTemplate: `%s | brunoviana.dev`,
   icon: 'src/favicon.png',
 
@@ -11,7 +11,7 @@ module.exports = {
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       plugins: [
         ['gridsome-plugin-remark-shiki', {
-          theme: 'min-light'
+          theme: 'nord'
         }],
         'remark-autolink-headings',
         'remark-emoji',
@@ -56,13 +56,13 @@ module.exports = {
         contentTypeName: 'Post',
         feedOptions: {
           title: 'Bleda, a Gridsome blog starter',
-          feed_url: 'https://gridsome-starter-bleda.netlify.com/feed.xml',
-          site_url: 'https://gridsome-starter-bleda.netlify.com',
+          feed_url: 'https://brunoviana.dev/feed.xml',
+          site_url: 'https://brunoviana.dev',
         },
         feedItemOptions: node => ({
           title: node.title,
           description: node.description,
-          url: 'https://gridsome-starter-bleda.netlify.com' + node.path,
+          url: 'https://brunoviana.dev' + node.path,
           author: node.author,
           date: node.date,
         }),

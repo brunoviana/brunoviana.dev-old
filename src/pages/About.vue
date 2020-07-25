@@ -9,7 +9,7 @@
         <g-link to="/" class="text-gray-900 border-gray-400 text-sm border opacity-75 hover:opacity-100 rounded-full px-4 py-2 transition-opacity duration-300">&larr; Home</g-link>
       </nav>
       <article class="max-w-xl md:max-w-2xl xl:max-w-3xl mx-auto px-6 sm:px-12 pt-16 border-b border-gray-300 pb-10 mb-16">
-        <div class="markdown text-lg leading-normal text-gray-700">
+        <div class="markdown text-lg leading-normal text-gray-200">
           <p>This is your about page, say something about you or this blog.</p>
           <p>You can edit this page in <code class="shiki-inline">src/pages/About.vue</code></p>
           <hr>

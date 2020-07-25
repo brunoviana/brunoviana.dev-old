@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-gray-700 text-sm leading-normal flex flex-wrap justify-between mx-auto max-w-3xl px-6 sm:px-12">
+  <footer class="text-gray-200 text-sm leading-normal flex flex-wrap justify-between mx-auto max-w-3xl px-6 sm:px-12">
     <div class="w-full sm:w-1/2 mb-4 sm:mb-0">
       <p><a href="https://github.com/cossssmin/gridsome-starter-bleda" class="border-b border-transparent hover:border-gray-400 transition-colors duration-300">Bleda</a> by <a href="https://twitter.com/cossssmin" class="border-b border-transparent hover:border-gray-400 transition-colors duration-300">@cossssmin</a></p>
       <p>Built with <a href="https://gridsome.org" class="border-b border-transparent hover:border-gray-400 transition-colors duration-300">Gridsome</a> &amp; <a href="https://tailwindcss.com/" class="border-b border-transparent hover:border-gray-400 transition-colors duration-300">Tailwind CSS</a>.</p>
