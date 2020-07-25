@@ -16,50 +16,50 @@ Isso acontece comigo direto, e como eu sou preguiçoso resolvi reunir nesse post
 
 ## Conteúdo
 
-- [Editei uma cacetada de arquivos mas quero fazer commits separados](#editei-uma-cacetada-de-arquivos-mas-quero-fazer-commits-separados)
-- [Preciso apagar commits que fiz errado para refazer do jeito certo](#preciso-apagar-commits-que-fiz-errado-para-refazer-do-jeito-certo)
-- Reorganizando commits pra ficar bonito no Code Review
-- Preciso reescrever um commit que não ficou bom
-- Commitei mas depois percebi que faltou algo
-- Comitei na master quando devia ter criado outra branch
+- [Como mudar a mensagem do último commit](#como-mudar-a-mensagem-do-ultimo-commit)
+- [Como adicionar mais arquivos no último commit](#como-adicionar-mais-arquivos-no-ultimo-commit)
+- [Como apagar commits errados para refazer do jeito certo](#como-apagar-commits-errados-para-refazer-do-jeito-certo)
+- [Como reorganizar vários commits de uma só vez](#como-reorganizar-varios-commits-de-uma-so-vez)
+- [Como remover um arquivo do Staging Area (desfazer git add)](#como-remover-um-arquivo-do-staging-area-desfazer-git-add)
+- [Como remover vários arquivos do Staging Area (desfazer git add)](#como-remover-arquivos-do-staging-area-desfazer-git-add)
+- [Como separar várias modificações no mesmo arquivo em commits diferentes](#como-separar-varias-modificacoes-no-mesmo-arquivo-em-commits-diferentes)
 
-## Editei uma cacetada de arquivos mas quero fazer commits separados
+## Como mudar a mensagem do último commit {id="como-mudar-a-mensagem-do-ultimo-commit"}
 
-A primeira coisa a fazer é verificar quais arquivos foram editados e estão esperando entrarem em um commit.
-
-```bash
-$ git status
-```
-
-Como exemplo eu tenho os arquivos `modificacao1.txt` e `modificacao1.2.txt` que vão no **primeiro** commit e o arquivo `modificacao2.txt` irá em um **segundo** commit.
-
-Primeiro adiciono os dois primeiros arquivos à `Staging Area`:
+Para isso commit novamente usando a opção `--amend`.
 
 ```bash
-$ git add modificacao1.txt modificacao1.2.txt
+$ git commit -m "nova mensagem de commit" --amend
 ```
 
-Depois realizo o commit deles:
+## Como adicionar mais arquivos no último commit {id="como-adicionar-mais-arquivos-no-ultimo-commit"}
+
+Adicione os arquivos ao Staging Area.
 
 ```bash
-$ git commit -m "Modificações da funcionalidade X"
+$ git add arquivo1.txt arquivo2.txt
 ```
 
-Em seguinda jogo a próxima modificação na `Staging Area` e commito também.
+Commit usando a opção `--amend`.
 
 ```bash
-$ git add modificacao2.txt
-
-$ git commit -m "Modificação na Funcionalidade Y"
+$ git commit --amend
 ```
 
-## Preciso apagar commits que fiz errado para refazer do jeito certo
+Será aberto um editor com a última mensagem de commit. Se deseja manter a mesma apenas salve e feche o editor.
+
+
+## Como apagar commits errados para refazer do jeito certo
 
 Nesse exemplo eu tenho os arquivos `modificacao1.txt` no **primeiro** commit e os arquivos `modificacao1.2.txt` e `modificacao2.txt` que foram no **segundo** commit. 
 
 Eu quero desfazer este último commit para que `modificacao1.2.txt` vá em um commit e `modificacao2.txt` vá em outro commit.
 
-Utilize o comando `git log` para ver a lista de commits e saber quantos deles deseja desfazer.
+Utilize o comando `git log` para ver a lista de commits e conte quantos a partir do `HEAD` (último commit registrado) você irá apagar.
+
+```bash
+$ git log
+```
 
 No meu caso quero apagar apenas 1 commit. Logo vou executar:
 
@@ -80,3 +80,79 @@ $ git commit -m "Apenas modificacao2.txt"
 ```
 
 > :warning: Não apague commits que já sofreram `push`
+
+## Como reorganizar vários commits de uma só vez {id="como-reorganizar-varios-commits-de-uma-so-vez"}
+
+Nesse exemplo eu tenho a seguinte lista de commits.
+
+- **Commit 1:** Finalizando funcionalidade X
+- **Commit 2:** Commitando composer.json que eu esqueci
+- **Commit 3:** Resolvendo bug encontrado na funcionalidade X
+- **Commit 4:** *Refantorando* código depois de corrigir o bug
+
+Nesse caso quero colocar as modificações do `Commit 2` dentro do `Commit 1`, manter o `Commit 3` e corrigir a palavra *"Refantorando"* do `Commit 4`.
+
+Execute rebase em modo interativo informado quantos commits a partir do `HEAD` (último commit registrado) será trabalhado.
+
+```
+$ git rebase -i HEAD~4
+```
+
+Será aberto um editor com a lista de commits para você dizer o que deseja fazer escrevendo a instrução na frente do commit. 
+
+Por exemplo, se você escrever `pick` o commit será mantido, já se você escrever `squash` ele será mesclado com o commit anterior.
+
+Leia as instruções na tela para entender melhor.
+
+No meu caso ficou assim:
+
+```bash
+pick 59d4134 Finalizando funcionalidade X
+squash 78bb2da Resolvendo bug encontrado na funcionalidade X
+pick 29c4568 Refatorando código depois de corrigir o bug
+reword 177e9ed apagando arquivos antigos
+```
+
+Salve e feche o editor. Em seguida abrirá novas telas do editor para você configurar as novas mensagens nos commits que decidiu alterar.
+
+> :warning: Não execute esta ação em commits que já sofreram `push`
+
+## Como remover um arquivo do Staging Area (desfazer git add)
+
+Execute `git reset` informando o arquivo.
+
+```bash
+$ git reset -- README.md
+```
+
+## Como remover vários arquivos do Staging Area (desfazer git add) {id="como-remover-arquivos-do-staging-area-desfazer-git-add"}
+
+Abra o modo interativo da Staging Area executando:
+
+```bash
+$ git add -i
+```
+
+No menu aparece várias opções do que você pode fazer. Para remover os arquivos digite o número `3` e aperte `Enter`.
+
+Em seguida veja na lista o número do arquivo que você deseja remover, digite-o e aparte `Enter`. Repita esse passo até remover todos os arquivos que deseja.
+
+Ao terminar aperte `Enter` sem digitar nada para voltar à lista de comandos e depois informe `7` para sair.
+
+## Como separar várias modificações no mesmo arquivo em commits diferentes {id="como-separar-varias-modificacoes-no-mesmo-arquivo-em-commits-diferentes"}
+
+Execute o comando:
+
+```bash
+$ git add -p
+```
+
+Na primeira vez será mostrado todas as modificações juntas, então digite a opção `s` de "split" para dizer que quer dividir.
+
+Após isso será perguntando de modificação em modificação o que você deseja fazer. Se quiser jogar a modificação na Staging Area informe `y`, caso contrário informe `n`.
+
+Repita esse passo até passar por todas as modificações.
+
+Se tiver duvidas sobre os comandos aperte `Enter` sem digitar nenhuma opção para ver as instruções.
+
+No final execute `git commit` para finalizar e repita o processo para adicionar as modificações que ficaram de fora.
