@@ -10,13 +10,9 @@ fullscreen: false
 ---
 O PHPStorm tem uma puta ferramenta para trabalhar com Git. Talvez o editor/IDE que você usa também tenha.
 
-Mas vai dizer que nunca aconteceu com você aquele problema de que tinha tanto arquivo para atualizar que travou o editor ou surgiu aquela mensagem de erro que você simplesmente não sabe como resolver por dentro do editor e precisa recorrer ao Stack Overflow pra ver resolver na mão?
+Mas vai dizer que nunca aconteceu com você aquele problema de que tinha tanto arquivo para atualizar que travou o editor ou surgiu aquela mensagem de erro que você simplesmente não sabe como resolver por dentro do editor e precisa recorrer ao Stack Overflow pra resolver na mão?
 
 Isso acontece comigo direto, e como eu sou preguiçoso resolvi reunir nesse post os principais problemas do dia-a-dia e como resolvê-los via linha de comando, assim quando eu precisar, eu posso apenas copiar e colar os comandos. :stuck_out_tongue_winking_eye:
-
-> Por ser um guia rápido eu não entro em detalhes do funcionamento dos comandos.
->
-> Se quiser entender como o Git funciona por debaixo dos panos leia o artigo [Como funciona: Git](/como-funciona-git).
 
 ## Conteúdo
 
@@ -35,7 +31,7 @@ A primeira coisa a fazer é verificar quais arquivos foram editados e estão esp
 $ git status
 ```
 
-Como exemplo eu tenho os arquivos `modificacao1.txt` e `modificacao1.2.txt` vão no **primeiro** commit e o arquivo `modificacao2.txt` irá em um **segundo** commit.
+Como exemplo eu tenho os arquivos `modificacao1.txt` e `modificacao1.2.txt` que vão no **primeiro** commit e o arquivo `modificacao2.txt` irá em um **segundo** commit.
 
 Primeiro adiciono os dois primeiros arquivos à `Staging Area`:
 
@@ -46,7 +42,7 @@ $ git add modificacao1.txt modificacao1.2.txt
 Depois realizo o commit deles:
 
 ```bash
-$ git commit -m "Modificacoes da funcionalidade X"
+$ git commit -m "Modificações da funcionalidade X"
 ```
 
 Em seguinda jogo a próxima modificação na `Staging Area` e commito também.
