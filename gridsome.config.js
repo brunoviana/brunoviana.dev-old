@@ -41,7 +41,7 @@ module.exports = {
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: 'UA-135446199-1',
+        id: 'UA-163604579-1',
       },
     },
     {
@@ -55,7 +55,7 @@ module.exports = {
       options: {
         contentTypeName: 'Post',
         feedOptions: {
-          title: 'Bleda, a Gridsome blog starter',
+          title: 'brunoviana.dev',
           feed_url: 'https://brunoviana.dev/feed.xml',
           site_url: 'https://brunoviana.dev',
         },
