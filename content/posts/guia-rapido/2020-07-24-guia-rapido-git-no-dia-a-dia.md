@@ -12,7 +12,7 @@ O PHPStorm tem uma puta ferramenta para trabalhar com Git. Talvez o editor/IDE q
 
 Mas vai dizer que nunca aconteceu com você aquele problema de que tinha tanto arquivo para atualizar que travou o editor ou surgiu aquela mensagem de erro que você simplesmente não sabe como resolver por dentro do editor e precisa recorrer ao Stack Overflow pra resolver na mão?
 
-Isso acontece comigo direto, e como eu sou preguiçoso resolvi reunir nesse post os principais problemas do dia-a-dia e como resolvê-los via linha de comando, assim quando eu precisar, eu posso apenas copiar e colar os comandos. :stuck_out_tongue_winking_eye:
+Isso acontece comigo direto e como eu sou preguiçoso resolvi reunir nesse post os principais problemas do dia-a-dia e como resolvê-los via linha de comando, assim quando eu precisar, eu posso apenas copiar e colar os comandos. :stuck_out_tongue_winking_eye:
 
 ## Conteúdo
 
