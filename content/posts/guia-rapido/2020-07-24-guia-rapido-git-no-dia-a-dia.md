@@ -23,7 +23,7 @@ Isso acontece comigo direto e como eu sou preguiçoso resolvi reunir nesse post 
 - [Como remover um arquivo do Staging Area (desfazer git add)](#como-remover-um-arquivo-do-staging-area-desfazer-git-add)
 - [Como remover vários arquivos do Staging Area (desfazer git add)](#como-remover-arquivos-do-staging-area-desfazer-git-add)
 - [Como separar várias modificações no mesmo arquivo em commits diferentes](#como-separar-varias-modificacoes-no-mesmo-arquivo-em-commits-diferentes)
-- Como apagar todas as modificações fora da Staging Area (untracked files)
+- [Como apagar todas as modificações fora da Staging Area (untracked files)](#como-apagar-todas-as-modificações-fora-da-staging-area-untracked-files)
 
 ## Como mudar a mensagem do último commit {id="como-mudar-a-mensagem-do-ultimo-commit"}
 
