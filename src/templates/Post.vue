@@ -11,6 +11,11 @@
 
         <div :class="{'pb-10': $page.post.author || $page.post.tags}" class="markdown text-lg leading-normal text-gray-200" v-html="$page.post.content" />
 
+        <div class="text-lg leading-normal text-gray-200 pb-10">
+          <p>---</p>
+          <p><em>Todo conteúdo deste blog é feito em cima de assuntos que eu aprendo no dia-a-dia, não se surpreenda se encontrar alguma asneira. Me ajude a ser um dev melhor me dando um toque no <a class="text-blue-500 hover:text-blue-400 transition-colors duration-300" href="https://twitter.com/brunoviana" target="_blank">Twitter</a>.</em></p>
+        </div>
+
         <footer v-if="$page.post.author || $page.post.tags" class="flex flex-wrap pb-10 sm:pb-16">
           <div>
             <g-link v-for="tag in $page.post.tags" :key="tag.id" :to="`${tag.path}/`" class="inline-block text-teal-400 hover:text-white hover:bg-teal-400 border border-teal-400 font-sans font-bold text-xs sm:text-sm px-4 py-2 mr-4 mb-2 rounded-full transition-colors duration-300">
