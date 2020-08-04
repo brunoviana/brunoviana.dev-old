@@ -1,7 +1,7 @@
 ---
-title: "Guia Rápido (ou quase): REST e Códigos HTTP"
-slug: ""
-description: ""
+title: "Guia Rápido (ou quase): REST e HTTP - juntos e Shallow Now"
+slug: "aaaaa"
+description: "Entenda como o REST usa o protocolo HTTP para trabalhar e sabia como uní-los isso para escrever API'sd o jeito certo."
 date: 2020-07-30 18:35:50
 author: bruno-viana
 tags: ['guia-rapido', 'git']
@@ -30,8 +30,14 @@ Flash-foward pra hoje em dia e eu vejo constantemente algo que até pouco tempo 
 
 Se você não sabe o problema disso aproveita que nesse artigo eu vou explicar tintin por tintin tudo que aprendi sobre códigos HTTP, a relação que o REST tem com o protocolo HTTP e como saber tudo isso me fez escrever API's do jeito certo.
 
+## Conteúdo
 
-## A relação entre REST e o protocolo HTTP
+- [A relação entre REST e o protocolo HTTP](#relacao-rest-http)
+- [Como usar o HTTP para mandar mensagens do jeito certo](#como-usar-http)
+- [Qual a importancia do Status Code?](#importancia-status-code)
+
+
+## A relação entre REST e o protocolo HTTP {id="relacao-rest-http"}
 
 Imagina que eu te pedi pra mandar um recado pra um amigo que mora do outro lado do mundo mas não te dei nenhum detalhe de como você deve mandar essa mensagem (via carta, email, whatsapp, etc) e nem qual o idioma que meu amigo fala.
 
@@ -47,7 +53,7 @@ Já o REST é um protocolo de **comunicação** entre dois serviços. Ele não d
 
 Isso significa que não importa se você vai mandar dados em JSON ou XML por que você vai dizer usando o próprio HTTP qual o formato da mensagem. Quem recebe na outra ponta usa essa informação para interpretar do jeito certo.
 
-## Como usar o HTTP para mandar mensagens do jeito certo
+## Como usar o HTTP para mandar mensagens do jeito certo {id="como-usar-http"}
 
 Toda comunicação HTTP é formada por 2 partes quando enviada: Cabeçalhos (Headers) e Corpo da Mensagem (Body). 
 
@@ -150,7 +156,7 @@ Agora sim temos uma resposta descente!
 
 Além de informar da mensagem estou também informando o código da resposta dando muito mais contexto para quem vai usar minha API.
 
-## Qual a importancia do Status Code?
+## Qual a importancia do Status Code? {id="importancia-status-code"}
 
 *"Ah mas eu posso procurar na mensagem se a chave "erro" existe na resposta e assim eu fico sabendo se é um erro"*
 
@@ -168,24 +174,7 @@ Os navegadores, por exemplo, usam o Status Code para defidir quando devem manter
 
 Servidores web como Apache ou NGINX usam o Status Code para te dar mais detalhes do tipo de erro que fez algo parar e você poder decidir como tratar.
 
-
-
-
-
-
-
-
-
-## Qual a importancia dos verbos do REST? Por que é importante implementá-los corretamente?
-
-**This is because our HTTP request method already has the verb.** Having verbs in our API endpoint paths isn’t useful and it makes it unnecessarily long since it doesn’t convey any new information. The chosen verbs could vary by the developer’s whim. For instance, some like ‘get’ and some like ‘retrieve’, so it’s just better to let the HTTP GET verb tell us what and endpoint does.
-
-GET: Buscas
-POST: Inserções
-PUT: Atualizações
-DELETE: Exclusões
-
-# Status Codes
+## Quais os principais Status Codes {id="principais-status-code"}
 
 https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
 
@@ -213,20 +202,3 @@ Mais comuns:
 502 Bad Gateway: O servidor não conseguiu contato com um serviço. Ex. NGINX não consegue conversar com PHP. Já tive vários problemas por não conseguir conectar com correios e sempre mandava 500 quando deveria mandar 502. Sempre ficava achando que a culpa era minha.
 503 Service Unavailabe: O servidor não está disponivel para uso no momento. Geralmente por uma manutenção ou o servidor está tão ocupado que não pode processar a requisição
 504 Gateway Timeout: Um serviço externo demorou muito pra responder. Exemplo NGINX espera resposta do PHP e ele não responde. Pode significar que o PHP está com gargalos.
-
-## Headers
-
-Toda requisição HTTP é formada por:
-- Status Code
-- Headers
-- Body
-
-O Body é apenas de interesse do cliente. Headers e Status Code são as informações que os programas e o navegador usa para conversar com o servidor. Alguns frameworks já fazem isso automático.
-
-Para que as duas pontas se entendam você deve mandar "Accept" e "Content-type".
-
-## Dicas
-
-Pare de usar jQuery e use fetch
-Use substantivos nos endpoints (explicar o que é um endpoint) para ficar explicito qual entidade está sendo trabalhada (nada de "/buscarUsuario?id=1", tem que ser "/usuarios/1" - entidade "usuarios" de id 1)
-Use plural para coleções
