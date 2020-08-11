@@ -4,7 +4,7 @@ slug: "aaaa"
 description: "Entenda como o REST usa o protocolo HTTP para trabalhar e sabia como uní-los isso para escrever API'sd o jeito certo."
 date: 2020-07-30 18:35:50
 author: bruno-viana
-tags: ['guia-rapido', 'git']
+tags: ['guia-rapido', 'rest', 'http', 'status-code']
 cover: /images/posts/guia-rapido-rest/tyler-nix-KLLcTHE20bI-unsplash.jpg
 fullscreen: false
 ---
