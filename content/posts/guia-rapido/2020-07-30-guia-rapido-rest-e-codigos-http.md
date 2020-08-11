@@ -1,11 +1,11 @@
 ---
 title: "Guia Rápido (ou quase): REST e HTTP - juntos e Shallow Now"
-slug: "aaaaa"
+slug: "aaaa"
 description: "Entenda como o REST usa o protocolo HTTP para trabalhar e sabia como uní-los isso para escrever API'sd o jeito certo."
 date: 2020-07-30 18:35:50
 author: bruno-viana
 tags: ['guia-rapido', 'git']
-cover: /images/posts/guia-rapido-git/oliver-sjostrom-6iH-qD2kPLk-unsplash.jpg
+cover: /images/posts/guia-rapido-rest/tyler-nix-KLLcTHE20bI-unsplash.jpg
 fullscreen: false
 ---
 
@@ -35,6 +35,7 @@ Se você não sabe o problema disso aproveita que nesse artigo eu vou explicar t
 - [A relação entre REST e o protocolo HTTP](#relacao-rest-http)
 - [Como usar o HTTP para mandar mensagens do jeito certo](#como-usar-http)
 - [Qual a importancia do Status Code?](#importancia-status-code)
+- [Os principais Status Codes](#principais-status-code)
 
 
 ## A relação entre REST e o protocolo HTTP {id="relacao-rest-http"}
@@ -174,31 +175,115 @@ Os navegadores, por exemplo, usam o Status Code para defidir quando devem manter
 
 Servidores web como Apache ou NGINX usam o Status Code para te dar mais detalhes do tipo de erro que fez algo parar e você poder decidir como tratar.
 
-## Quais os principais Status Codes {id="principais-status-code"}
+## Os principais Status Codes {id="principais-status-code"}
 
-https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
+No site da Mozzila há uma [página dedicada a falar sobre Status Code](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status).
 
-Mais comuns:
+Porém eu vou fazer um resumão com exemplos dos principais que você vai ver por aí ou até mesmo irá usar em suas API's.
 
-2XX: Indicam sucesso com a requisição. Porém dependendo da requisição os tipos de sucesso podem variar.
-200 OK: Sucesso genérico. Significa que a requisição foi bem recebida e processada com sucesso.
-201 Created: Significa que um novo recurso foi criado. Por exemplo, você solicitou a criação de um usuário. Se a requisição alem de ser recebida e processada com sucesso ela também criou uma nova entidade ela vai retornar 201.
-204 No Content: Quando não há nada para ser retornado mas é importante o cliente saber que a requisição chegou com sucesso.
+### Status Code 2XX
 
-3xx: Não são erros, mas sim respostas do servidor indicando redirecionamento.
-301 Moved Permanetly: Movido permanentemente - Os navegadores e o Google irão guardar essa resposta e não contaram mais com a URL que informou o status 301.
-302 Moved Temporarily: Movido temporariamente. Não é guardado pois come sse status você está dizendo que está URL um dia voltará a responder novamente.
+Os Status Code 2XX (entre 200 e 299) são status que indicam sucesso na requisição, ou seja, a requisição foi recebida com sucesso e processada com sucesso. Há diferentes tipos de sucesso dependendo do que a requisição tenta fazer.
 
-4xx: São erros produzidos pelo cliente. Geralmente ele mandou alguma informações errada e o servidor recusou a requisição.
-400 Bad Request: O servidor não entendeu a requisição. Pode ser usado para validação (ex. a requisição não mandou o id da entidade a ser tratada): https://www.quora.com/Which-HTTP-code-is-best-suited-for-validation-errors-400-or-422
-401 Unauthorized: Não tem autorização para acessar o recurso. Geralmente o usuário não está autenticado.
-403 Forbidden: Você não tem permissão para acessar o endereço. Pode ser falta de chave de api, regra de bloqueio da URI no NGINX, login ou senha inválido, etc.
-404 Not Found: Famosinho. Indica que a entidade não foi encontrda. Pode ser a página que a URI devia exibir ou um usuário com id não existente.
-422 Unprocessable Entity: A resição não é aceita por conta de erro semantico (Ex. casa decimal com ponto no lugar de virgula). Bastante usando para validação.
-429 Too Manu Requests: O usuário enviou mais requisições do que poderia. Geralmente há algum limite no servidor que bloqueia. Já passei por problema disso nos correios mas sempre recebia status 200 e não sabia o que estava errado.
+#### 200 OK
 
-5XX: Geralmente indicam erros que aconteceram dentro do servidor. O "geralmente" é por que pode ser que o erro não seja o servidor mas um serviço externo que o servidor precisa e não está funcionando, porém para o cliente da requisição o erro não é dele, logo é encarado como erro no servidor.
-500 Internal Server Erro: Geralmente é algum erro de código do serviço. Exception disparada, erro de sintaxe na configuração ou até mesmo Segmentation Fault de um processo.
-502 Bad Gateway: O servidor não conseguiu contato com um serviço. Ex. NGINX não consegue conversar com PHP. Já tive vários problemas por não conseguir conectar com correios e sempre mandava 500 quando deveria mandar 502. Sempre ficava achando que a culpa era minha.
-503 Service Unavailabe: O servidor não está disponivel para uso no momento. Geralmente por uma manutenção ou o servidor está tão ocupado que não pode processar a requisição
-504 Gateway Timeout: Um serviço externo demorou muito pra responder. Exemplo NGINX espera resposta do PHP e ele não responde. Pode significar que o PHP está com gargalos.
+É um código de sucesso genérico. 
+
+É usado quando o serviço não tem detalhes do tipo da requisição mas deseja informar que tudo ocorreu como deveria.
+
+#### 201 Created
+
+Significa que um novo recurso foi criado. 
+
+Por exemplo, você solicitou a criação de um usuário e a requisição alem de ser recebida e processada com sucesso ela também criou uma nova entidade (nesse caso um novo usuário) ela vai retornar 201.
+
+### Status Code 3XX
+
+Os Status Code 3xx indicam um redirecionamento.
+
+Por algum motivo o recurso solicitado (uma página HTML, um usuário em formato JSON, etc) não existe mais, mas o servidor quer te redirecionar para o novo lugar onde o recurso pode ser encontrado.
+
+#### 301 Moved Permanetly
+
+Informa ao cliente que o recurso foi movido permanentemente.
+
+Geralmente quem recebe essa resposta guarda ela e não fará mais consultas ao recurso antigo.
+
+É muito comum quando a URI em uma página muda (por exemplo, `/about` mudou para `/quem-somos`) e você precisa informar essa mudança para o Google manter todo o cálculo de reelvância da página antiga para a página nova.
+
+Redirecionamentos 301 costumam ser cacheados pelos navegadores, logo as URI's antigas não mais serão acessadas até que o cache seja limpo.
+
+#### 302 Found
+
+Informa que o recurso existe mas foi movido temporariamente. 
+
+Não é guardado em cache pois com esse status você está dizendo que está URL um dia voltará a responder novamente.
+
+### Status Code 4XX
+
+Os Status Code 4XX indicam que houve um erro na requisição por parte do cliente. Pode ser uma validação que não passou, um dado que ficou faltando ou uma informação mal escrita.
+
+#### 400 Bad Request
+
+Erro usado quando a requisição está mal formada de alguma forma.
+
+Um bom exemplo é quando um endpoint espera algo como `/api/usuarios/:id` e o parâmetro `:id` não é passado.
+
+#### 401 Unauthorized
+
+Aqui o cliente não tem autorização para acessar o recurso. 
+
+Significa que o recurso só é acessível via autenticação e o cliente não está autenticado.
+
+#### 403 Forbidden
+
+O cliente está autenticado ou está tentando se autenticar mas o servidor o está recursando por motivos diversos (login/senha incorreto, token expirou, está logado mas não tem permissão, etc).
+
+Também pode significar que alguma regra interna definiu que aquele recurso não está acessível externamente. Por exemplo, foi criado uma regra no NGINX que não permite ninguém acessar a URI `/config.php`. Nesse caso a requisição retornará `403 Forbidden`.
+
+
+#### 404 Not Found
+
+Famosinho e precisa de pouca explicação. 
+
+Indica que a entidade não foi encontrda. Pode ser a página que a URI não existe mais, um usuário que não existe mais no sistema, etc.
+
+#### 422 Unprocessable Entity
+
+A requisição não é aceita por conta de erro semântico.
+
+Por exemplo, uma casa decimal com ponto no lugar de virgula. Bastante usando para validação de dados vindos do usuário.
+
+#### 429 Too Many Requests
+
+O usuário enviou mais requisições do que poderia. 
+
+Geralmente há algum limite no servidor que bloqueia uma quantidade de requisições do mesmo cliente.
+
+### Status Code 5XX
+
+Já o Status Code 5XX indicam - geralmente - erros que aconteceram dentro do servidor. 
+
+O "geralmente" é por que pode ser que o erro não seja o servidor mas um serviço externo (chamado de "gateway") que o mesmo precisa e não está funcionando, porém como o erro não é do cliente é encarado como erro no servidor.
+
+#### 500 Internal Server Erro
+
+Geralmente é algum erro de código do serviço como uma exception disparada, erro de sintaxe na configuração ou até mesmo Segmentation Fault de um processo.
+
+#### 502 Bad Gateway
+
+O servidor não conseguiu contato com um gateway. 
+
+Por exemplo, o NGINX não consegue conversar com PHP ou uma loja virtual não conseguiu fazer cotação de frete usando o webservice dos Correios.
+
+#### 503 Service Unavailabe
+
+O servidor não está disponivel para uso no momento. 
+
+Geralmente por uma manutenção ou o servidor está tão ocupado que não pode processar a requisição.
+
+#### 504 Gateway Timeout
+
+Um gateway demorou muito pra responder. 
+
+Exemplo NGINX espera resposta do PHP e ele não responde. Pode significar que o gateway (no caso o PHP) está com gargalos.
