@@ -1,7 +1,7 @@
 ---
 title: "Guia Rápido (ou quase): REST e HTTP - juntos e Shallow Now"
 slug: "aaaa"
-description: "Entenda como o REST usa o protocolo HTTP para trabalhar e sabia como uní-los isso para escrever API'sd o jeito certo."
+description: "Entenda como o REST usa o protocolo HTTP para trabalhar e sabia como uní-los para escrever API'sd o jeito certo."
 date: 2020-07-30 18:35:50
 author: bruno-viana
 tags: ['guia-rapido', 'rest', 'http', 'status-code']
