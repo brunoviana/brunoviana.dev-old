@@ -34,7 +34,7 @@ Se você não sabe o problema disso aproveita que nesse artigo eu vou explicar t
 
 - [A relação entre REST e o protocolo HTTP](#relacao-rest-http)
 - [Como usar o HTTP para mandar mensagens do jeito certo](#como-usar-http)
-- [Qual a importancia do Status Code?](#importancia-status-code)
+- [Qual a importância do Status Code?](#importancia-status-code)
 - [Os principais Status Codes](#principais-status-code)
 
 
@@ -157,7 +157,7 @@ Agora sim temos uma resposta descente!
 
 Além de informar da mensagem estou também informando o código da resposta dando muito mais contexto para quem vai usar minha API.
 
-## Qual a importancia do Status Code? {id="importancia-status-code"}
+## Qual a importância do Status Code? {id="importancia-status-code"}
 
 *"Ah mas eu posso procurar na mensagem se a chave "erro" existe na resposta e assim eu fico sabendo se é um erro"*
 
